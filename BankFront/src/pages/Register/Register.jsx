@@ -1,22 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
     <div>
       <nav className="main-nav">
-        <a className="main-nav-logo" href="./index.html">
+        {/* <a className="main-nav-logo" href="./index.html"> */}
+        <Link to="/">
           <img
             className="main-nav-logo-image"
-            src="../styles/img/argentBankLogo.png"
+            src="../src/styles/img/argentBankLogo.png"
             alt="Argent Bank Logo"
           />
-          <h1 className="sr-only">Argent Bank</h1>
-        </a>
+        </Link>
+
+        <h1 className="sr-only">Argent Bank</h1>
+
         <div>
-          <a className="main-nav-item" href="./sign-in.html">
+          <Link to="/register">Sign In</Link>
+          {/* <a className="main-nav-item" href="./sign-in.html">
             <i className="fa fa-user-circle"></i>
             Sign In
-          </a>
+          </a> */}
         </div>
       </nav>
       <main className="main bg-dark">
@@ -37,9 +42,10 @@ const Register = () => {
               <label for="remember-me">Remember me</label>
             </div>
             {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-            <a href="./user.html" className="sign-in-button">
+            {/* <a href="./user.html" className="sign-in-button">
               Sign In
-            </a>
+            </a> */}
+            <Link to="/user/2">Sign In</Link>
             {/* <!-- SHOULD BE THE BUTTON BELOW -->
         <!-- <button className="sign-in-button">Sign In</button> -->
         <!--  --> */}
