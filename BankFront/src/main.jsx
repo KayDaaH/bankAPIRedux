@@ -4,8 +4,14 @@ import Home from "./pages/Home/Home";
 import Profil from "./pages/Profil/Profil";
 import Register from "./pages/Register/Register";
 import ErrorPage from "./pages/Error/Error";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 import "./styles/css/main.css";
+// import App from "./App";
 
 const router = createBrowserRouter([
   {
