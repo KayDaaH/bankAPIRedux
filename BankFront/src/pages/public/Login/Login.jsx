@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Signin = () => {
+const Login = () => {
   const [login, setLogin] = useState("test");
 
   const onSubmit = (e) => {
@@ -24,7 +24,7 @@ const Signin = () => {
         <h1 className="sr-only">Argent Bank</h1>
 
         <div>
-          <Link to="/signin">Sign In</Link>
+          <Link to="/login">Sign In</Link>
           {/* <a className="main-nav-item" href="./sign-in.html">
             <i className="fa fa-user-circle"></i>
             Sign In
@@ -70,4 +70,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;

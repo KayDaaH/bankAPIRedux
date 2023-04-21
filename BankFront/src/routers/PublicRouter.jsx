@@ -1,7 +1,7 @@
 import React from "react";
 import ErrorPage from "../pages/public/Error/ErrorPage";
 import Home from "../pages/public/Home/Home";
-import Signin from "../pages/public/Signin/Signin";
+import Login from "../pages/public/Login/Login";
 import { Route, Routes } from "react-router-dom";
 import Profil from "../pages/private/Profil/Profil";
 
@@ -10,7 +10,7 @@ const PublicRouter = () => {
     <Routes>
       <Route index element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/signin" element={<Signin />} />
+      <Route path="/login" element={<Login />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
