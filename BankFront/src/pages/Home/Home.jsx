@@ -21,7 +21,7 @@ const Home = () => {
             <i className="fa fa-user-circle"></i>
             Sign In
           </a> */}
-          <Link to="/register">Sign In</Link>
+          <Link to="/signin">Sign In</Link>
         </div>
       </nav>
       <main>
