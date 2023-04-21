@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [login, setLogin] = useState("test");
+  const [formData, setFormData] = useState({
+    login: "",
+    password: "",
+  });
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
+    console.log(formData);
   };
 
   return (
@@ -39,11 +49,23 @@ const Login = () => {
           <form onSubmit={onSubmit}>
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
-              <input type="text" id="username" value={login} />
+              <input
+                type="text"
+                id="username"
+                name="login"
+                value={formData.login}
+                onChange={onChange}
+              />
             </div>
             <div className="input-wrapper">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={onChange}
+              />
             </div>
             <div className="input-remember">
               <label htmlFor="remember-me">Remember me</label>
