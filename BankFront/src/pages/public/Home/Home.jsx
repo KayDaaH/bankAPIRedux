@@ -40,7 +40,7 @@ const Home = () => {
           <h2 className="sr-only">Features</h2>
           <div className="feature-item">
             <img
-              src="../styles/img/icon-chat.png"
+              src="../src/styles/img/icon-chat.png"
               alt="Chat Icon"
               className="feature-icon"
             />
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
           <div className="feature-item">
             <img
-              src="../styles/img/icon-money.png"
+              src="../src/styles/img/icon-money.png"
               alt="Chat Icon"
               className="feature-icon"
             />
@@ -65,7 +65,7 @@ const Home = () => {
           </div>
           <div className="feature-item">
             <img
-              src="../styles/img/icon-security.png"
+              src="../src/styles/img/icon-security.png"
               alt="Chat Icon"
               className="feature-icon"
             />
