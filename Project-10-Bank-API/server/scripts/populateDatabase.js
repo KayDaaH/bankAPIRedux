@@ -5,29 +5,51 @@ const userModel = require("../database/models/userModel");
 const connection = require("../database/connection");
 const { Db } = require("mongodb");
 
+// const users = [
+//   {
+//     firstName: "Tony3",
+//     lastName: "Stark",
+//     email: "tony@stark.com",
+//     password: "password123",
+//   },
+//   {
+//     firstName: "Steve3",
+//     lastName: "Rogers",
+//     email: "steve@rogers.com",
+//     password: "password456",
+//   },
+// ];
+
+// users.forEach(async (user) => {
+//   connection();
+//   const newUser = new userModel(user);
+//   try {
+//     await newUser.save();
+//     console.log(`Données enregistrées sur la BDD`);
+//   } catch (error) {
+//     console.error(`Erreur lors de l'importation des données : ${error}`);
+//     throw new Error(error);
+//   }
+// });
+
 const users = [
   {
-    firstName: "Tony3",
+    firstName: "Tony",
     lastName: "Stark",
     email: "tony@stark.com",
     password: "password123",
   },
   {
-    firstName: "Steve3",
+    firstName: "Steve",
     lastName: "Rogers",
     email: "steve@rogers.com",
     password: "password456",
   },
 ];
 
-users.forEach(async (user) => {
-  connection();
-  const newUser = new userModel(user);
-  try {
-    await newUser.save();
-    console.log(`Données enregistrées sur la BDD`);
-  } catch (error) {
-    console.error(`Erreur lors de l'importation des données : ${error}`);
-    throw new Error(error);
-  }
+users.forEach((user) => {
+  axios
+    .post(signupApi, user)
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error));
 });

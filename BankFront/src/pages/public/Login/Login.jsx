@@ -1,10 +1,13 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
+
   const [formData, setFormData] = useState({
-    login: "",
-    password: "",
+    email: "tony@stark.com",
+    password: "password123",
   });
 
   const onChange = (e) => {
@@ -17,6 +20,10 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    axios
+      .post("http://localhost:3001/api/v1/user/login", formData)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -52,8 +59,8 @@ const Login = () => {
               <input
                 type="text"
                 id="username"
-                name="login"
-                value={formData.login}
+                name="email"
+                value={formData.email}
                 onChange={onChange}
               />
             </div>
