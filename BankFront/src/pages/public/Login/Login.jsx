@@ -1,27 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getToken } from "../../../service/service";
 
 const Login = () => {
   axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
 
-  const [formData, setFormData] = useState({
-    email: "tony@stark.com",
-    password: "password123",
-  });
-
-  const onChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
     axios
-      .post("http://localhost:3001/api/v1/user/login", formData)
+      .post("http://localhost:3001/api/v1/user/login", {
+        email: email,
+        password: password,
+      })
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
   };
@@ -60,8 +55,8 @@ const Login = () => {
                 type="text"
                 id="username"
                 name="email"
-                value={formData.email}
-                onChange={onChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="input-wrapper">
@@ -70,8 +65,8 @@ const Login = () => {
                 type="password"
                 name="password"
                 id="password"
-                value={formData.password}
-                onChange={onChange}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="input-remember">

@@ -53,8 +53,11 @@ module.exports.loginUser = async (serviceData) => {
     if (!user) {
       throw new Error("User not found!");
     }
+    console.log(serviceData.password);
+    console.log(user.password);
 
     const isValid = await bcrypt.compare(serviceData.password, user.password);
+    console.log(isValid);
     if (!isValid) {
       throw new Error("Password is invalid");
     }
