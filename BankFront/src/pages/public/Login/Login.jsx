@@ -1,24 +1,29 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { getToken } from "../../../service/service";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { setUserData } from "../../../features/userSlice";
+import { getUserData } from "../../../services/user.service";
 
 const Login = () => {
-  axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("tony@stark.com");
+  const [password, setPassword] = useState("password123");
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const test = useSelector((state) => state.user.token);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:3001/api/v1/user/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    const credentials = {
+      email: email,
+      password: password,
+    };
+
+    getUserData(credentials).then((userData) => {
+      userData ? dispatch(setUserData(userData)) : null;
+      navigate("/user/" + userData.userId);
+    });
   };
 
   return (
@@ -78,7 +83,6 @@ const Login = () => {
               Sign In
             </a> */}
 
-            <Link to="/user/2">Sign In</Link>
             <button className="sign-in-button">Sign In</button>
 
             {/* <!-- SHOULD BE THE BUTTON BELOW -->

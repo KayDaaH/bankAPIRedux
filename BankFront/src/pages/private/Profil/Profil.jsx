@@ -1,7 +1,25 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { setUserData } from "../../../features/userSlice";
 
 const Profil = () => {
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(
+      setUserData({
+        token: null,
+        firstName: null,
+        lastName: null,
+        userId: null,
+      })
+    );
+    navigate("/");
+  };
+
   return (
     <div>
       <nav className="main-nav">
@@ -16,17 +34,18 @@ const Profil = () => {
 
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          <a className="main-nav-item" href="./user.html">
+          {/* <a className="main-nav-item" href="./user.html">
             <i className="fa fa-user-circle"></i>
             Tony
-          </a>
+          </a> */}
+          <button> Tony</button>
           {/* <a className="main-nav-item" href="./index.html">
             <i className="fa fa-sign-out"></i>
             Sign Out
           </a> */}
-          <Link className="main-nav-item" to="/">
+          <button onClick={logout} className="main-nav-item" to="/">
             Sign Out
-          </Link>
+          </button>
         </div>
       </nav>
       <main className="main bg-dark">

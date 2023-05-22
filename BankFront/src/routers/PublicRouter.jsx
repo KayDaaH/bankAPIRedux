@@ -11,6 +11,7 @@ const PublicRouter = () => {
       <Route index element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
+
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

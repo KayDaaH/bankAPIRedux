@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PublicRouter from "./routers/PublicRouter";
 import UserRouter from "./routers/UserRouter";
-import AuthGuard from "./_helpers/AuthGuard";
+import AuthGuard from "./helpers/AuthGuard";
 
 const App = () => {
   return (
