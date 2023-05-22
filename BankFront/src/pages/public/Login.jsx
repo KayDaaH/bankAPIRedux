@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setUserData } from "../../../features/userSlice";
-import { getUserData } from "../../../services/user.service";
+import { setUserData } from "../../features/userSlice";
+import { getUserData } from "../../services/user.service";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("tony@stark.com");
-  const [password, setPassword] = useState("password123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const Login = () => {
 
     getUserData(credentials).then((userData) => {
       userData ? dispatch(setUserData(userData)) : null;
-      navigate("/user/" + userData.userId);
+      navigate("/profile/" + userData.userId);
     });
   };
 

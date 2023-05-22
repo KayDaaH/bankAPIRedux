@@ -11,7 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/*" element={<PublicRouter />} />
           <Route
-            path="/user/*"
+            path="/profile/*"
             element={
               <AuthGuard>
                 <UserRouter />

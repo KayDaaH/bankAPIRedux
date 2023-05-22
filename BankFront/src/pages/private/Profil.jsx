@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import EditName from "../../../components/EditName/EditName";
-import { editUserData, setUserData } from "../../../features/userSlice";
-import { resetUserData, userEditDb } from "../../../services/user.service";
+import EditName from "../../components/EditName/EditName";
+import { editUserData, setUserData } from "../../features/userSlice";
+import { resetUserData, userEditDb } from "../../services/user.service";
 
 const Profil = () => {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ const Profil = () => {
 
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          <button>{userFirstName}</button>
+          <button className="main-nav-username">{userFirstName}</button>
           <button onClick={logout} className="main-nav-item" to="/">
             Sign Out
           </button>

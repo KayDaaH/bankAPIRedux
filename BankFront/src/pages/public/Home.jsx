@@ -26,7 +26,7 @@ const Home = () => {
 
         <div>
           {isLogged ? (
-            <Link to={"/user/" + selector.userId}>Profile</Link>
+            <Link to={"/profile/" + selector.userId}>Profile</Link>
           ) : (
             <Link to="/login">Sign In</Link>
           )}

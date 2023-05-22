@@ -1,8 +1,8 @@
 import React from "react";
-import ErrorPage from "../pages/public/Error/ErrorPage";
-import Home from "../pages/public/Home/Home";
+import ErrorPage from "../pages/public/ErrorPage";
+import Home from "../pages/public/Home";
 import { Route, Routes } from "react-router-dom";
-import Profil from "../pages/private/Profil/Profil";
+import Profil from "../pages/private/Profil";
 
 const UserRouter = () => {
   return (

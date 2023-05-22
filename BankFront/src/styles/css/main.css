@@ -6,6 +6,12 @@ html {
   color: #2c3e50;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -65,8 +71,9 @@ body {
 }
 
 .main-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 25px;
 }
 
 .main-nav a.router-link-exact-active {
@@ -74,13 +81,27 @@ body {
 }
 
 .main-nav-item {
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
   margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+.main-nav-username {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: white;
 }
 
-.main-nav-item:hover {
+/* .main-nav-item:hover {
   text-decoration: underline;
-}
+} */
 
 .main-nav-logo {
   display: flex;
@@ -104,7 +125,7 @@ body {
 .hero-content {
   position: relative;
   top: 2rem;
-  width: 200px;
+  width: 300px;
   background: white;
   padding: 2rem;
   text-align: left;
@@ -170,7 +191,7 @@ body {
 
 @media (min-width: 920px) {
   .hero {
-    height: 400px;
+    height: 500px;
     background-position: 0% 33%;
   }
 
@@ -194,6 +215,7 @@ body {
 .features {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 @media (min-width: 920px) {
@@ -234,6 +256,10 @@ body {
 }
 
 .sign-in-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
   box-sizing: border-box;
   background-color: white;
   width: 300px;
