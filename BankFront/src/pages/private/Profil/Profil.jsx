@@ -1,29 +1,49 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { setUserData } from "../../../features/userSlice";
+import EditName from "../../../components/EditName/EditName";
+import { editUserData, setUserData } from "../../../features/userSlice";
+import { resetUserData, userEditDb } from "../../../services/user.service";
 
 const Profil = () => {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.user);
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [editionIsOpen, setEditionIsOpen] = useState(false);
+
+  useEffect(() => {
+    setUserFirstName(selector.firstName);
+    setUserLastName(selector.lastName);
+    console.log("useEffect");
+  }, [editionIsOpen]);
 
   const logout = () => {
-    dispatch(
-      setUserData({
-        token: null,
-        firstName: null,
-        lastName: null,
-        userId: null,
-      })
-    );
+    const resetData = resetUserData();
+    dispatch(setUserData(resetData));
     navigate("/");
   };
 
+  const editUserName = () => {
+    setEditionIsOpen(true);
+  };
+
+  const handleFormSubmit = (credentials) => {
+    setEditionIsOpen(false);
+    dispatch(editUserData(credentials));
+    userEditDb(credentials, selector.token);
+  };
+
+  const handleFormCancel = () => {
+    setEditionIsOpen(false);
+  };
+
   return (
-    <div>
+    <div className="test">
       <nav className="main-nav">
-        {/* <a className="main-nav-logo" href="./index.html"> */}
         <Link to="/">
           <img
             className="main-nav-logo-image"
@@ -34,15 +54,7 @@ const Profil = () => {
 
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          {/* <a className="main-nav-item" href="./user.html">
-            <i className="fa fa-user-circle"></i>
-            Tony
-          </a> */}
-          <button> Tony</button>
-          {/* <a className="main-nav-item" href="./index.html">
-            <i className="fa fa-sign-out"></i>
-            Sign Out
-          </a> */}
+          <button>{userFirstName}</button>
           <button onClick={logout} className="main-nav-item" to="/">
             Sign Out
           </button>
@@ -53,9 +65,20 @@ const Profil = () => {
           <h1>
             Welcome back
             <br />
-            Tony Jarvis!
+            {`${userFirstName} ${userLastName} `}!
           </h1>
-          <button className="edit-button">Edit Name</button>
+          {editionIsOpen ? (
+            <EditName
+              firstName={userFirstName}
+              lastName={userLastName}
+              onSubmit={handleFormSubmit}
+              onCancel={handleFormCancel}
+            />
+          ) : (
+            <button onClick={editUserName} className="edit-button">
+              Edit Name
+            </button>
+          )}
         </div>
         <h2 className="sr-only">Accounts</h2>
         <section className="account">

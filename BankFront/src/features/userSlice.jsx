@@ -16,8 +16,13 @@ export const userSlice = createSlice({
       state.lastName = lastName;
       state.userId = userId;
     },
+    editUserData: (state, { payload }) => {
+      const { firstName, lastName } = payload;
+      state.firstName = firstName;
+      state.lastName = lastName;
+    },
   },
 });
 
-export const { setUserData } = userSlice.actions;
+export const { setUserData, editUserData } = userSlice.actions;
 export default userSlice.reducer;

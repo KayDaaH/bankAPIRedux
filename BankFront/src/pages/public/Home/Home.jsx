@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const selector = useSelector((state) => state.user);
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    selector.token ? setIsLogged(true) : setIsLogged(false);
+  }, []);
+
   return (
     <div>
       <nav className="main-nav">
-        {/* <a className="main-nav-logo" href="./index.html"> */}
         <Link to="/">
           <img
             className="main-nav-logo-image"
@@ -17,11 +25,11 @@ const Home = () => {
         <h1 className="sr-only">Argent Bank</h1>
 
         <div>
-          {/* <a className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </a> */}
-          <Link to="/login">Sign In</Link>
+          {isLogged ? (
+            <Link to={"/user/" + selector.userId}>Profile</Link>
+          ) : (
+            <Link to="/login">Sign In</Link>
+          )}
         </div>
       </nav>
       <main>

@@ -10,7 +10,6 @@ const Login = () => {
   const [password, setPassword] = useState("password123");
 
   const dispatch = useDispatch();
-  const test = useSelector((state) => state.user.token);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +28,6 @@ const Login = () => {
   return (
     <div>
       <nav className="main-nav">
-        {/* <a className="main-nav-logo" href="./index.html"> */}
         <Link to="/">
           <img
             className="main-nav-logo-image"
@@ -40,13 +38,7 @@ const Login = () => {
 
         <h1 className="sr-only">Argent Bank</h1>
 
-        <div>
-          <Link to="/login">Sign In</Link>
-          {/* <a className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </a> */}
-        </div>
+        <div></div>
       </nav>
       <main className="main bg-dark">
         <section className="sign-in-content">
@@ -78,16 +70,7 @@ const Login = () => {
               <label htmlFor="remember-me">Remember me</label>
               <input type="checkbox" id="remember-me" />
             </div>
-            {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-            {/* <a href="./user.html" className="sign-in-button">
-              Sign In
-            </a> */}
-
             <button className="sign-in-button">Sign In</button>
-
-            {/* <!-- SHOULD BE THE BUTTON BELOW -->
-        <!-- <button className="sign-in-button">Sign In</button> -->
-        <!--  --> */}
           </form>
         </section>
       </main>

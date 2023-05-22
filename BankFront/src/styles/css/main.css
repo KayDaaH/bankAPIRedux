@@ -9,16 +9,33 @@ html {
 body {
   margin: 0;
   display: flex;
+  position: relative;
   flex-direction: column;
   min-height: 100vh;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+.test {
+  min-height: 100vh;
+}
+
 .main {
-  flex: 1;
+  flex-grow: 1;
+  min-height: 100vh;
 }
 
 .bg-dark {
   background-color: #12002b;
+  flex-grow: 1;
+  min-height: 100vh;
 }
 
 .sr-only {
@@ -39,7 +56,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  /* padding: 0 20px; */
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  top: 0;
 }
 
 .main-nav a {
@@ -99,6 +121,52 @@ body {
   margin-bottom: 0;
   font-size: 0.9rem;
 }
+
+.edit-name {
+  display: flex;
+  justify-content: center;
+}
+.form-name {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450px;
+  height: 70px;
+}
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.form-input input {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-button button {
+  font-size: 16px;
+}
+
+.form-button :nth-child(1) {
+  position: absolute;
+  bottom: 0;
+  left: 149px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.form-button :nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  right: 135px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+/* .form-name {
+  display: flex;
+} */
 
 @media (min-width: 920px) {
   .hero {
@@ -207,6 +275,12 @@ body {
   justify-content: center;
   border-top: 2px solid #ccc;
   padding: 2rem 0 1.5rem;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
 }
 
 .footer-text {
@@ -261,7 +335,12 @@ body {
 
 .header {
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+  padding-top: 50px;
+}
+
+.header h1 {
+  margin-top: 50px;
 }
 
 .transaction-button {

@@ -20,13 +20,22 @@ const getUserData = async (credentials) => {
   return false;
 };
 
-// const getUserData = async (token) => {
-//   const response = Axios.post("/profile", null, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
-//   return await response;
-// };
+const resetUserData = () => {
+  return {
+    token: null,
+    firstName: null,
+    lastName: null,
+    userId: null,
+  };
+};
 
-export { getUserData };
+const userEditDb = async (credentials, token) => {
+  console.log(JSON.stringify(credentials));
+  await Axios.put("/profile", credentials, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export { getUserData, resetUserData, userEditDb };
