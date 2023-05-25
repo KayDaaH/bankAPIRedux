@@ -185,10 +185,6 @@ body {
   padding: 0 10px;
 }
 
-/* .form-name {
-  display: flex;
-} */
-
 @media (min-width: 920px) {
   .hero {
     height: 500px;

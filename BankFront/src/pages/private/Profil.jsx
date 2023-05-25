@@ -18,7 +18,6 @@ const Profil = () => {
   useEffect(() => {
     setUserFirstName(selector.firstName);
     setUserLastName(selector.lastName);
-    console.log("useEffect");
   }, [editionIsOpen]);
 
   const logout = () => {

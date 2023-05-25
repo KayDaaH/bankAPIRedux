@@ -1,5 +1,4 @@
 import React from "react";
-// import styles from "./EditName.scss";
 
 const EditName = ({ firstName, lastName, onSubmit, onCancel }) => {
   const handleSubmit = (e) => {
@@ -14,7 +13,6 @@ const EditName = ({ firstName, lastName, onSubmit, onCancel }) => {
   const closeForm = (e) => {
     e.preventDefault();
     onCancel();
-    console.log("Close");
   };
   return (
     <div className="edit-name">
